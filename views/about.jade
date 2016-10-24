@@ -1,0 +1,98 @@
+extends layout
+block content
+	.container(style='margin-top:150px')
+		.row
+			div
+				.col-lg-12(style='text-align:center')
+					button#showStaff.button
+						span Teaching Staff
+		
+		.row(style='margin-top:50px')
+			div
+				.col-lg-4.col-md-4.col-sm-4.col-xs-12(style='text-align:center')
+					button#a.button
+						span Star Students
+				.col-lg-4.col-md-4.col-sm-4.col-xs-12(style='text-align:center;color: #f4f442;border-radius:20px')
+					button#b.button(style='text-align:center;background-color:#f4ad42')
+						span Awards
+				.col-lg-4.col-md-4.col-sm-4.col-xs-12(style='text-align:center')
+					button#c.button
+						span  Environment
+						
+		.row(style='margin-top:50px')
+			div
+				.col-lg-4(style='text-align:center')
+					
+				.col-lg-4(style='text-align:center')
+					button#d.button
+						span Some Other You Must Know
+				.col-lg-4(style='text-align:center')
+					
+	#staffTable.container(style='margin-top:40px;display:none')
+		.row
+			div
+				.col-lg-3
+				.col-lg-6
+					.container
+						table.table.table-striped
+							thead
+								tr
+									th Name
+									th Designation
+									th Subject
+							tbody
+								tr
+									td Mr. Kuldeep Kumar Vyas
+									td Headmaster
+									td L.S.
+								tr
+									td Mr.Sultan Singh
+									td Lecturer
+									td -
+								tr
+									td Mr. Bhanu Parkash Sharma
+									td Lecturer
+									td SKT
+								tr
+									td Mr. Durgaram Bhari
+									td Lecturer
+									td HL
+								tr
+									td Mr. Laxminarayan Jangid
+									td Lecturer
+									td POL.SC/RAJ.
+								tr
+									td Mr. Ratan Lal Sharma
+									td Senior Teacher
+									td MATHS
+								tr
+									td Mr. Kalyan Singh
+									td Senior Teacher
+									td GEO/S.STU
+								tr
+									td Ms. Anjana Gupta
+									td Senior Teacher
+									td HINDI
+								tr
+									td Mr. Narendra Sankarity
+									td Senior Teacher
+									td SC/GEO
+								tr
+									td Mr. Subhash Chandra Meena
+									td Senior Teacher
+									td ENGLISH/SUPW
+								tr
+									td Mr. Bhaira Ram Kumhar
+									td Senior Teacher
+									td SUPW
+								tr
+									td Mr. Ravi Parkash Gaur
+									td Senior Teacher
+									td H.E
+								tr
+									td
+									td
+										button#closeTable.btn.btn-warning(type='button')
+											span Close
+									td
+				.col-lg-3

@@ -60,11 +60,17 @@ app.use(expressValidator({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 //Connect Flash
+app.use(session());
 app.use(flash());
 app.use(function (req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
   res.locals.session = req.session.user;
   next();
+});
+app.use(function(req, res, next){
+    res.locals.success = req.flash('success');
+    res.locals.errors = req.flash('error');
+    next();
 });
 
 

@@ -5,50 +5,50 @@ block content
 	.container
 		.row(style='height:120px;background-color:#ffad99;margin-top:90px;')
 			.col-lg-12(style='padding-left:50px;padding-top:30px;')
-				h1.hidden-xs(style='color:white;font-weight:bold;text-align:center') Upcoming Events....
-				h3.visible-xs(style='color:white;font-weight:bold;text-align:center') Upcoming Events....
+				h1.hidden-xs(style='color:white;font-weight:bold;text-align:center') What is Ongoing ? Check it out here....
+				h3.visible-xs(style='color:white;font-weight:bold;text-align:center') What is Ongoing ? Check it out here....
 	
 		.row
 			.col-xs-12.col-sm-6.col-lg-4
 				.box
 					.icon
 						.image
-							i.fa.fa-thumbs-o-up
+							i.fa.fa-pencil-square-o(style='margin-top: 15;')
 						.info
 							h3.title Exams & Result
 							p
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.
 							.more
 								a(href='#', title='Title Link', data-toggle='modal', data-target='#examModal')
-									Read More 
+									Read Check
 									i.fa.fa-angle-double-right
 					.space
 			.col-xs-12.col-sm-6.col-lg-4
 				.box
 					.icon
 						.image
-							i.fa.fa-flag
+							i.fa.fa-futbol-o(style='margin-top: 15;') 
 						.info
 							h3.title Extra Curricular Activities
 							p
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.
 							.more
 								a(href='#', title='Title Link', data-toggle='modal', data-target='#extraCurricularModal')
-									Read More 
+									Read Check 
 									i.fa.fa-angle-double-right
 					.space
 			.col-xs-12.col-sm-6.col-lg-4
 				.box
 					.icon
 						.image
-							i.fa.fa-desktop
+							i.fa.fa-send-o(style='margin-top: 15;')
 						.info
 							h3.title Other Info.
 							p
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper.
 							.more
 								a(href='#', title='Title Link', data-toggle='modal', data-target='#otherModal')
-									Read More 
+									Read Check
 									i.fa.fa-angle-double-right
 					.space
 	
@@ -57,6 +57,11 @@ block content
 				div(style='text-align:center')
 					if session === 'admin'
 						button#addNew.btn.btn-info.active(type='button') Add New Event
+		.row
+			.col-lg-12
+				div(style='text-align:center')
+					if session != 'admin'
+						button.btn.btn-info.active(type='button',data-toggle="tooltip" ,title="Feature not available in Beta version") Subscribe me for any new Update				
 						
 		.row.eventform(style='display:none;')
 			.col-lg-4
@@ -71,9 +76,10 @@ block content
 				form(method='post',action='/events/addevent', enctype='multipart/form-data')
 					.form-group
 						label(for='eventName') Event Name
-						input#eventName.form-control(type='text', placeholder='Enter event name',name='eventName')
+							
+						input#eventName.form-control(type='text', placeholder='Enter event name',name='eventName',required="true")
 					.form-group
-						label(for='sel1') Event Category
+						label(for='sel1') Event Category (Default category will be "Other")
 						select#eventCategory.form-control(name='category')
 							option(value='other') --Select--
 							option(value='examResult') Exams and Results
@@ -81,9 +87,11 @@ block content
 							option(value='other') Other
 					.form-group
 						label(for='EventDescription') Event Description
-						textarea#description.form-control(rows='6',name="eventDescription")
+							
+						textarea#description.form-control(rows='6',name="eventDescription",required="true")
 					.form-group
-						label(for='file') Add Attachment (in pdf format)
+						label(for='file') Add Attachment 
+							span(style='font-size:11px') You can attach .pdf,.jpeg,.png file Here(Optional Field)
 						input#file.form-control(type='file',name='eventFile')
 					div(style='text-align:center;')
 						button.btn.btn-success(type='submit') Submit
@@ -104,21 +112,22 @@ block content
 						each er, i in allEvents
 							if er.category === 'examResult'	
 								.row(style='height:40px;background:#e6ffcc;padding-top:6px;')
-									.col-lg-10 #{er.name}
-									.col-lg-2
+									.col-lg-10.col-md-10.col-sm-10.col-xs-10 #{er.name}
+									.col-lg-2.col-md-2.col-sm-2.col-xs-2
 										if session === 'admin'
 											form(method='post',action='/events/delete')
 												input(type='hidden', value='#{er._id}', name='eventToDelete')
 												button.btn.btn-default(type='submit',data-toggle="tooltip", title='Click to Delete the Event',style='margin-top:4px;margin-left:-4px;')
 													span.glyphicon.glyphicon-trash.gi-1.5x
 								.row(style='height:40px')
-									.col-lg-1
+									.col-lg-1.col-md-1.col-sm-1.col-xs-2
 										button.btn.btn-default(type='button',data-toggle='popover', data-trigger='hover', title='#{er.name}', data-content='#{er.desc}',style='margin-top:4px;margin-left:-4px;')
 											span.glyphicon.glyphicon-tags.gi-1x
 											
-									.col-lg-1
+									.col-lg-1.col-md-1.col-sm-1.col-xs-2
 										button.btn.btn-default#previewFile(type='button',style='margin-top:4px;margin-left:-4px;' ,data-toggle='modal', data-target='#myModal' , onclick='getFileName("#{er.filename}")')
 											span.glyphicon.glyphicon-paperclip.gi-1x
+									
 										
 							
        

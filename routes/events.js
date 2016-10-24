@@ -23,7 +23,7 @@ router.get('/event', function(req, res, next) {
 	var examsAndResults ;
 	var extraCurricular ;
 	var others ;
-	
+	req.flash('success', 'Welcome to News Area');
 	Event.getAllEvents(function(err, events){
 		if(err) console.log('Some Error Occur in Geting all events');
 		if(err) throw err;

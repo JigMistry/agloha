@@ -1,0 +1,28 @@
+extends layout
+
+block content	
+	.container(style='margin-top:130px;')
+		.row
+			#map.col-lg-5(style='height:480px')
+			.col-lg-1
+			.col-lg-6(style='height:400px')
+				.row
+					.col-lg-8
+						.alert.alert-info(role='alert')
+							strong
+								h2 Feel Free to Ask
+								h4 We'll respond to your query as soon as possible
+				.row
+					.col-lg-8
+						form
+							.form-group
+								label(for='eventName') Your Name
+								input#name.form-control(type='text', placeholder='Enter your name',required='true')
+							.form-group
+								label(for='email') Your Email
+								input#email.form-control(type='email', placeholder='Enter email',required='true')
+							.form-group
+								label(for='query') Your Query !
+								textarea#query.form-control(rows='6',required='true')
+							div(style='text-align:center;')
+								button.btn.btn-success(type='submit') Submit

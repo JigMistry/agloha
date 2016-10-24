@@ -6,43 +6,73 @@ html
 		link(rel='stylesheet',href='/stylesheets/bootstrap.css')
 		link(rel='stylesheet',href='/stylesheets/carousel.css')
 		link(rel='stylesheet',href='/stylesheets/contactus.css')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css')
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
 		script(src='/javascripts/bootstrap.js')
 		script(src='/javascripts/custom.js')
+		script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDMT0OqEfmeF3yVGzb9s1cp_ufGM3E_tAU\&callback=initMap')
+  
+
+		link(rel='shortcut icon' href="/images/head.png")
 		title AgSchoolLoha
 	body
+		
+
 		.navbar-wrapper
 			.container
+				
+					
 				nav.navbar.navbar-inverse.navbar-static-top
 					.container
-						.navbar-header
-							button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-								span.sr-only Toggle navigation
-								span.icon-bar
-								span.icon-bar
-								span.icon-bar
-							a.navbar-brand(style='color:white ;font-family:OpenSans', href='#') G.S.S. School, Loha
-						#navbar.navbar-collapse.collapse.pull-right
-							ul.nav.navbar-nav
-								li(class=(title == 'Home' ? 'active' : ''))
-									a(href='/') Home
-								li(class=(title == 'Gallary' ? 'active' : '') )
-									a(href='/gallery') Gallary
-								li(class=(title == 'Events' ? 'active' : ''))
-									a(href='/events/event') Events
-								li(class=(title == 'Contact' ? 'active' : ''))
-									a(href='/contact') Contact
-								li(class=(title == 'AboutUs' ? 'active' : ''))
-									a(href='/about') About Us
-								if session === 'admin'	
-									li
-										a(href='/admins/logout') Log Out
-								else	
-									li(class=(title == 'LogIn' ? 'active' : ''))
-										a(href='/admins/login') Log In
-			
+						.row
+							.col-lg-3.col-md-4.col-sm-6.col-xs-9
+								img.img-responsive(src='/images/log.png', alt='Ag school Logo', width='350', height='100')
+							.col-lg-9.col-md-8.col-sm-6.col-xs-3
+								.navbar-header
+									button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+										span.sr-only Toggle navigation
+										span.icon-bar
+										span.icon-bar
+										span.icon-bar
+							
+								#navbar.navbar-collapse.collapse.pull-right
+									ul.nav.navbar-nav
+										li(class=(title == 'Home' ? 'active' : ''))
+											a(href='/') Home
+										li(class=(title == 'Gallary' ? 'active' : '') )
+											a Gallary
+										li(class=(title == 'Events' ? 'active' : ''))
+											a(href='/events/event') News
+										li(class=(title == 'Contact' ? 'active' : ''))
+											a(href='/contact') Contact
+										li(class=(title == 'AboutUs' ? 'active' : ''))
+											a(href='/about') About Us
+										if session === 'admin'	
+											li
+												a(href='/admins/logout') Log Out
+										else	
+											li(class=(title == 'LogIn' ? 'active' : ''))
+												a(href='/admins/login') Log In
+		
+		
 		block content
 		
-		#info(style='text-align:center;padding-top:6px;color:white;')
-			strong Know About Web Developer
-	
+		#clock
+			iframe(style='overflow:hidden;border:0;margin:0;padding:0;width:165px;height:120px;', src='http://www.clocktag.com/html5/dt141.html')
+
+		#info(style='text-align:center;')
+			a(role="button" data-toggle="modal" data-target="#login-modal")
+				i.fa.fa-paper-plane(style='font-size:50px;color:#f48f42',data-toggle="tooltip" ,title="Know about web developer")
+
+		#login-modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true', style='display: none;')
+			.modal-dialog
+				.modal-content
+					.modal-header(style='text-align:center;')
+						img#img_logo.img-responsive(src='/images/popup.jpg', style='height:200px;width:400px;display:inline')
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span.glyphicon.glyphicon-remove(aria-hidden='true')
+					a(href='https://www.facebook.com/jignesh.mistry.1276' target='_blank')
+						div(style='text-align:center;')
+							span(style='text-align:center;color:black;text-decoration:none;font-size:15px') Contact me
+							
+					
