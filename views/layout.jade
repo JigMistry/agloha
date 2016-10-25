@@ -57,12 +57,15 @@ html
 		
 		block content
 		
-		#clock
+		#clock.hidden-xs.hidden-sm
 			iframe(style='overflow:hidden;border:0;margin:0;padding:0;width:165px;height:120px;', src='http://www.clocktag.com/html5/dt141.html')
 
-		#info(style='text-align:center;')
+		#info(style='text-align:center;').hidden-xs
 			a(role="button" data-toggle="modal" data-target="#login-modal")
 				i.fa.fa-paper-plane(style='font-size:50px;color:#f48f42',data-toggle="tooltip" ,title="Know about web developer")
+		#info(style='text-align:center;').visible-xs
+			a(role="button" data-toggle="modal" data-target="#login-modal")
+				i.fa.fa-paper-plane(style='font-size:35px;color:#f48f42',data-toggle="tooltip" ,title="Know about web developer")		
 
 		#login-modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true', style='display: none;')
 			.modal-dialog

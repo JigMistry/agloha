@@ -62,7 +62,10 @@ block content
 				div(style='text-align:center')
 					if session != 'admin'
 						button.btn.btn-info.active(type='button',data-toggle="tooltip" ,title="Feature not available in Beta version") Subscribe me for any new Update				
-						
+		.row
+			.col-lg-12
+		br
+			
 		.row.eventform(style='display:none;')
 			.col-lg-4
 			.col-lg-4
@@ -147,8 +150,8 @@ block content
 						each er, i in allEvents
 							if er.category === 'extraCurricular'	
 								.row(style='height:40px;background:#e6ffcc;padding-top:6px;')
-									.col-lg-10 #{er.name}
-									.col-lg-2
+									.col-lg-10.col-md-10.col-sm-10.col-xs-10 #{er.name}
+									.col-lg-2.col-md-2.col-sm-2.col-xs-2
 										if session === 'admin' 
 											form(method='post',action='/events/delete')
 												input(type='hidden', value='#{er._id}', name='eventToDelete')
@@ -156,11 +159,11 @@ block content
 													span.glyphicon.glyphicon-trash.gi-1.5x
 													
 								.row(style='height:40px')
-									.col-lg-1
+									.col-lg-1.col-md-1.col-sm-1.col-xs-2
 										button.btn.btn-default(type='button',data-toggle='popover', data-trigger='hover', title='#{er.name}', data-content='#{er.desc}',style='margin-top:4px')
 											span.glyphicon.glyphicon-tags.gi-1x
 											
-									.col-lg-1
+									.col-lg-1.col-md-1.col-sm-1.col-xs-2
 										button.btn.btn-default#previewFile(type='button',style='margin-top:4px;margin-left:-4px;' ,data-toggle='modal', data-target='#myModal' , onclick='getFileName("#{er.filename}")')
 											span.glyphicon.glyphicon-paperclip.gi-1x
 											
@@ -181,27 +184,27 @@ block content
 						each er, i in allEvents
 							if er.category === 'other'	
 								.row(style='height:40px;background:#e6ffcc;padding-top:6px;')
-									.col-lg-10 #{er.name}
-									.col-lg-2
+									.col-lg-10.col-md-10.col-sm-10.col-xs-10 #{er.name}
+									.col-lg-2.col-md-2.col-sm-2.col-xs-2
 										if session === 'admin'
 											form(method='post',action='/events/delete')
 												input(type='hidden', value='#{er._id}', name='eventToDelete')
 												button.btn.btn-default(type='submit',data-toggle="tooltip", title='Click to Delete the Event',style='margin-top:4px;margin-left:-4px;')
 													span.glyphicon.glyphicon-trash.gi-1.5x
 								.row(style='height:40px')
-									.col-lg-1
+									.col-lg-1.col-md-1.col-sm-1.col-xs-2
 										button.btn.btn-default(type='button',data-toggle='popover', data-trigger='hover', title='#{er.name}', data-content='#{er.desc}',style='margin-top:4px;margin-left:-4px;')
 											span.glyphicon.glyphicon-tags.gi-1x
 											
-									.col-lg-1
+									.col-lg-1.col-md-1.col-sm-1.col-xs-2
 										button.btn.btn-default#previewFile(type='button',style='margin-top:4px;margin-left:-4px;' ,data-toggle='modal', data-target='#myModal' , onclick='getFileName("#{er.filename}")')
 											span.glyphicon.glyphicon-paperclip.gi-1x
 										
-	#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+	#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='false')
 		.modal-dialog
 			.modal-content
 				.modal-header
-					button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+					button.close(type='button', data-dismiss='modal', aria-hidden='false') ×
 					h4#myModalLabel.modal-title Attached File
 				.modal-body
 					div(style='text-align: center;')
